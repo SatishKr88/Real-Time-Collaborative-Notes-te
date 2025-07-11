@@ -16,7 +16,10 @@ app.use(cors());
 app.use(express.json());
 
 
-mongoose.connect('mongodb://localhost:27017/notesdb');
+mongoose.connect('mongodb://127.0.0.1:27017/notesdb', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.post('/notes', async (req, res) => {
   try {

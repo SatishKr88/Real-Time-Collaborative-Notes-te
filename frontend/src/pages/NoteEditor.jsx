@@ -39,11 +39,11 @@ function NoteEditor() {
     socket.on('active_users', setActiveUsers);
 
     socket.on('user_joined', (username) => {
-      showTemporaryNotification(`👋 ${username || 'A user'} joined the note`);
+      showTemporaryNotification(` ${username || 'A user'} joined the note`);
     });
 
     socket.on('user_left', (username) => {
-      showTemporaryNotification(`👋 ${username || 'A user'} left the note`);
+      showTemporaryNotification(` ${username || 'A user'} left the note`);
     });
 
     return () => {
