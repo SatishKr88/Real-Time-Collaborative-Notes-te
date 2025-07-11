@@ -15,11 +15,7 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
-
-mongoose.connect('mongodb://127.0.0.1:27017/notesdb', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI);
 
 app.post('/notes', async (req, res) => {
   try {
