@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const http = require('http');
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI);
+
 
 app.post('/notes', async (req, res) => {
   try {
@@ -110,7 +112,7 @@ io.on('connection', (socket) => {
 });
 
 
-const PORT = 4000;
+const PORT =  4000;
 server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
