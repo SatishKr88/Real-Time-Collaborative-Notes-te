@@ -4,7 +4,7 @@ import axios from 'axios';
 import { io } from 'socket.io-client';
 import TextareaAutosize from 'react-textarea-autosize';
 
-const socket = io('http://localhost:4000', { autoConnect: false });
+const socket = io('https://real-time-collaborative-notes-te.onrender.com', { autoConnect: false });
 
 function NoteEditor() {
   const { id } = useParams();
@@ -21,7 +21,7 @@ function NoteEditor() {
 
     async function fetchNote() {
       try {
-        const res = await axios.get(`http://localhost:4000/notes/${id}`);
+        const res = await axios.get(`https://real-time-collaborative-notes-te.onrender.com/notes/${id}`);
         if (isMounted.current) setNote(res.data);
       } catch (err) {
         console.error('Failed to fetch note:', err);
@@ -64,7 +64,7 @@ function NoteEditor() {
       saveTimeout.current = setTimeout(async () => {
         try {
           setIsSaving(true);
-          await axios.put(`http://localhost:4000/notes/${id}`, { content });
+          await axios.put(`https://real-time-collaborative-notes-te.onrender.com/notes/${id}`, { content });
           if (isMounted.current) {
             setNote((prev) => ({
               ...prev,

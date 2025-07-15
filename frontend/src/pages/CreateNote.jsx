@@ -12,7 +12,7 @@ function CreateNote() {
 
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:4000/notes', { title });
+      const res = await axios.post('https://real-time-collaborative-notes-te.onrender.com/notes', { title });
       navigate(`/note/${res.data._id}`);
     } catch (error) {
       console.error('Failed to create note:', error);
